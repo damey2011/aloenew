@@ -1,0 +1,71 @@
+{% extends 'no-carousel-base.html' %}
+{% block content %}
+    <section class="properties">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="blogPost">
+                                {% for bp in posts %}
+                                    <div class="propertyContent row">
+
+                                        <div class="col-lg-12 rowText">
+                                            <table border="1" class="blogDetails">
+                                                <tr>
+                                                    <td><a href="#"><i class="fa fa-calendar"></i> {{ bp.timestamp.date }}</a></td>
+                                                    <td><a href="#"><i class="fa fa-heart"></i> {{ bp.likes }} LIKES</a></td>
+                                                    <td><a href="#"><i class="fa fa-share"></i> SHARE</a></td>
+                                                </tr>
+                                            </table>
+                                            <h4><a href="/blogs/{{ bp.slug }}">{{ bp.title }}</a></h4><br/>
+                                            <br>
+                                            <span>POSTED BY <a href="#">{{ bp.author.first_name }} {{ bp.author.last_name }}</a></span>
+                                            {{ bp.content | safe | truncatewords:50 }}
+                                            [...]<br>
+                                            <a class="buttonGrey" href="/blogs/{{ bp.slug }}">READ MORE</a>
+
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                {% endfor %}
+                            </div>
+
+                            <div class="pagination" style='text-align: center; display: block; margin: 0 auto;'>
+                                <ul class="step-links pagination pagination-lg">
+                                    {% if posts.has_previous %}
+                                        <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+                                    {% endif %}
+
+
+                                    <li class="active"><a href="#">{{ posts.number }}</a></li>
+                                    {% if posts.has_next %}
+                                        <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+                                    {% endif %}
+                                </ul>
+						<span class="current">
+                                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                        </span>
+                            </div>
+
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end col -->
+
+                <!-- START SIDEBAR -->
+                <div class="col-lg-3 col-md-3">
+
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+    <!-- end main content -->
+
+    {% include 'join-now-modal.html' %}
+    {% include 'shop-now-modal.html' %}
+
+
+{% endblock %}

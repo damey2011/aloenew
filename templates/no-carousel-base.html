@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forever Living Products</title>
+    {% load staticfiles %}
+    {#    <link rel="stylesheet" href="{% static 'css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/yamm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+<div class="nav-fix">
+
+</div>
+
+<!--End of navbar-->
+
+<div class="row owner-row">
+    <div class="container">
+        <div class="media col-lg-8">
+            <div class="portfolio media-body">
+                <img src="/static/images/leke.jpg" alt="" class="pull-left media-object m-img">
+                <p class="media-heading">Forever Living Products Business Owner</p>
+                natural health and beauty products
+            </div>
+        </div>
+        <div class="col-lg-4 business-info">
+            JOIN NOW & SAVE 15%! It's 100% FREE! <br>
+            I can help you if you have any Question! <br>
+            Call Oyeleke at +2348032550758
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+<!-- Start Header -->
+<header class="navbar yamm navbar-default navbar-fixed-top">
+    <div class="topBar">
+        <div class="container">
+            <p class="topBarText"><img class="icon" src="/static/images/icon-phone.png" alt=""/>+2348032550758</p>
+
+            <p class="topBarText"><img class="icon" src="/static/images/icon-mail.png" alt=""/>oyelekeolaoye@gmail.com</p>
+            <ul class="socialIcons">
+                <li class="topBarText"><a href="#" data-toggle="modal" data-target="#shopModal">Shop</a></li>
+                <li class="topBarText"><a href="#" data-toggle="modal" data-target="#joinModal">Join</a></li>
+                <li><a href="#"><img src="/static/images/icon-fb.png" alt=""/></a></li>
+{#                <li><a href="#"><img src="/static/images/icon-twitter.png" alt=""/></a></li>#}
+{#                <li><a href="#"><img src="/static/images/icon-google.png" alt=""/></a></li>#}
+{#                <li><a href="#"><img src="/static/images/icon-rss.png" alt=""/></a></li>#}
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <!--<img src="/static/images/logoGreen.png" alt="True Health" />-->
+                TRUEHEALTH<span>SOLUTIONS</span>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+            <!--  start login/register -->
+            <ul class="userButtons">
+                <li class="userBtn"><a href="#" class="buttonGrey" data-toggle="modal" data-target="#shopModal">Shop Now</a></li>
+                <li class="userBtn"><a href="#" class="buttonGrey" data-toggle="modal" data-target="#joinModal">Join Now</a></li>
+            </ul>
+            <!-- end login/register -->
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown {{ home }}">
+                    <a href="/">HOME</a>
+                </li>
+                <li class="dropdown {{ products }}">
+                    <a href="/products">PRODUCTS</a>
+                </li>
+                <li class="dropdown {{ discounts }}">
+                    <a href="/discounts">DISCOUNTS</a>
+                </li>
+                <li class="dropdown {{ become }}">
+                    <a href="/become-business-owner">BECOME A BUSINESS OWNER</a>
+                </li>
+                <li class="dropdown {{ top_prod }}">
+                    <a href="/top-products">TOP PRODUCTS</a>
+                </li>
+                <li class="dropdown {{ contact }}">
+                    <a href="/feedback">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+    <!-- end header container -->
+
+</header>
+<!-- End Header -->
+
+{% block content %}
+
+
+{% endblock %}
+
+
+<div class="container">
+    <form action="" class="sub-form form-group">
+        <span><span class="fa fa-envelope-o icon-mail"></span>  Join our mailing list for exclusive updates</span>
+        <br>
+        <br>
+        <input type="email" class="email-input form-control" placeholder="Your Email Address"/>
+        <input type="submit" value="Join" class="btn btn-default submit-btn">
+    </form>
+</div>
+
+{% include 'join-now-modal.html' %}
+{% include 'shop-now-modal.html' %}
+
+<footer class="custom-footer-nav">
+
+    <div class="footer-link-container">
+        <ul class="footer-link-list">
+            <li><a href="/blogs">Blogs</a></li>
+        </ul>
+    </div>
+    <hr/>
+    <br>
+
+    <div>
+        &copy; 2017 Forever Living Products Business Owner. All Rights Reserved.
+    </div>
+</footer>
+
+
+</body>
+
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+<script>
+    var csrf = '{{ csrf_token }}';
+    $.getJSON('/products/categories', {'csrfmiddlewaretoken': csrf}, function (data) {
+        $.each(data, function (key, value) {
+            $('.footer-link-list').append(list_item(value));
+        })
+    })
+
+    function list_item(item){
+        return "<li><a href='/products/category/"+item.id+"'>"+item.category+"</a></li>"
+    }
+
+</script>
+</html>

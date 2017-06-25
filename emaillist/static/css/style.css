@@ -1,0 +1,500 @@
+*{
+    color: grey;
+    line-height: 2.0;
+}
+
+h1{
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Light';
+    src: url('type/proximanova-light-webfont.eot');
+    src: url('type/proximanova-light-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('type/proximanova-light-webfont.woff') format('woff'),
+    url('type/proximanova-light-webfont.ttf') format('truetype'),
+    url('type/proximanova-light-webfont.svg#proxima_novalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Reg';
+    src: url('type/proximanova-regular-webfont.eot');
+    src: url('type/proximanova-regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('type/proximanova-regular-webfont.woff') format('woff'),
+    url('type/proximanova-regular-webfont.ttf') format('truetype'),
+    url('type/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Semi-bold';
+    src: url('type/proximanova-semibold-webfont.eot');
+    src: url('type/proximanova-semibold-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('type/proximanova-semibold-webfont.woff') format('woff'),
+    url('type/proximanova-semibold-webfont.ttf') format('truetype'),
+    url('type/proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.nav-fix{
+    height: 140px;
+}
+
+.owner-row{
+    margin-bottom: 25px;
+}
+
+.business-owner img{
+    width: 120px;
+    height: 120px;
+    float: right;
+}
+
+
+
+.m-img{
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.portfolio p{
+    font-size: 18px;
+    font-weight:600;
+    margin-left: 10px;
+}
+
+.portfolio span{
+
+}
+
+.carousel-container{
+    background: url('../images/abstract-background-52.jpg') no-repeat;
+    background-size: cover;
+    margin: 25px;
+}
+
+.carousel-control{
+    font-size: 90px;
+    display: block;
+    top: calc(50% - 90px);
+}
+
+.why-container{
+    margin-top: 30px;
+}
+
+.why-forever{
+    text-align: center;
+}
+
+.why-forever ul{
+    list-style-image: url("../images/icon-7.png");
+    line-height: 1.8;
+
+}
+
+.why-forever h2{
+    color: #56792f;
+}
+
+.diff-prod .col-lg-2{
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.diff-prod .col-lg-2 img{
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 1px grey;
+}
+
+.col-cs img{
+    display: block;
+    margin: 0 auto;
+}
+
+.great-way img{
+    max-width: 150px;
+}
+
+.great-way h1{
+    color: #56792f;
+    text-align: center;
+}
+
+.great-way p{
+    text-align: center;
+    color: grey;
+    font-size: 20px;
+}
+
+.divider{
+    border: 1px solid #56792f;
+}
+
+.forever-tagged{
+    color: #56792f;
+    font-weight: 500;
+}
+
+.history ul {
+    line-height: 1.7;
+
+}
+
+.extra-note{
+    font-size: 12px;
+    color: grey;
+}
+
+.buy-forever-prod h1{
+    color: #56792f;
+    text-align: center;
+}
+
+.buy-forever-prod h3{
+    color: #56792f;
+}
+
+.buy-forever-prod .buy-p{
+    text-align: center;
+    font-weight: 600;
+}
+
+.disc-cont{
+    border: 1px solid grey;
+    box-shadow: 2px 2px 2px 1px grey;
+    margin-bottom: 40px;
+}
+
+.disc-cont{
+    border-radius: 15px;
+}
+
+.up-div{
+    border-radius: 15px 15px 0 0;
+}
+
+.act-now{
+    border-radius: 0 0 15px 15px;
+}
+
+.disc-cont h3{
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    padding: 5px;
+}
+
+.become-member h1{
+    color: #56792f;
+    text-align: center;
+}
+
+.become-member p{
+    text-align: center;
+    color: grey;
+    font-size: 20px;
+}
+
+.become-member ul{
+    text-align: center;
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0 8px;
+}
+
+.become-member ul li{
+    border-bottom: 1px dotted grey;
+    padding: 15px;
+}
+
+.up-div p{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.up-div{
+    display: block;
+    background-color: #56792f;
+    /*margin-top: -20px;*/
+    padding-bottom: 7px;
+}
+
+.up-div-1{
+    background-color: #505160;
+}
+
+.up-div-2{
+    background-color: #68829E;
+}
+
+
+.act-now a{
+    color: white;
+    font-size: 24px;
+    display: block;
+}
+
+.act-now{
+    display: block;
+    padding: 15px;
+    background: darkred;
+    text-align: center;
+}
+
+.buy-or-join{
+    display: block;
+    text-align: center;
+}
+
+.buy-or-join a{
+    margin: 30px -3px;
+    border-radius: 2px 0;
+    border: 1px solid grey;
+    box-shadow: 2px 2px 1px 1px grey;
+}
+
+.buy-or-join a:first-child{
+    border-right: 0;
+}
+
+.buy-or-join a:nth-child(2){
+    border-left: 0;
+}
+
+.btn-custom{
+    background-color: #505160;
+    color: white;
+}
+
+.btn-custom:hover{
+    background-color: rgba(80, 81, 96, 0.5);
+}
+
+.reason{
+    margin-bottom: 30px;
+}
+
+.reason .reason-img{
+    width: 100px;
+    height: 100%;
+    float: left;
+    margin-right: 10px;
+}
+
+.reason-img img{
+    border: 1px solid grey;
+    border-radius: 4px;
+    max-width: 100px;
+}
+
+.reason-content{
+
+}
+
+.reason-header{
+    font-size: 20px;
+    font-weight: 500;
+    color: #68829E;
+}
+
+.reason-body{
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.custom-footer-nav ul{
+    list-style-type: none;
+    display: inline-block;
+}
+
+.custom-footer-nav ul li{
+    display: inline;
+    padding: 20px;
+    text-align: center;
+}
+
+.custom-footer-nav ul li a{
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.custom-footer-nav ul li a:hover{
+    color: grey;
+}
+
+.custom-footer-nav hr, .trunc-line{
+    margin: 5px 20%;
+}
+
+.custom-footer-nav div{
+    text-align: center;
+}
+
+.sub-form{
+    display: block;
+    padding: 20px;
+    background-color: #505160;
+    color: white;
+    border-radius: 10px;
+}
+
+.sub-form span{
+    text-align: center;
+    font-size: 25px;
+    color: lightgrey;
+    text-shadow: #56792f 0 3px 3px 0;
+    font-weight: 600;
+}
+
+.email-input{
+    width: calc(100% - 90px);
+    display: inline;
+}
+
+.submit-btn{
+    /*display: inline;*/
+    width: 80px;
+}
+
+.icon-mail{
+    font-size: 25px;
+}
+
+.quote span{
+    font-size: 20px;
+}
+
+.products h4{
+    color: #56792f;
+}
+
+.products .fa{
+    color: #56792f;
+}
+
+.product-line-2{
+    margin: 10px 65% 10px 0;
+    border: 2px solid #56792f;
+}
+
+.product-heading{
+    font-weight: 600;
+    color: #56792f;
+}
+
+.buy-for-2 h3{
+    font-weight: 600;
+}
+
+
+.why-not{
+    text-align: center;
+}
+
+.cards{
+    font-size: 30px;
+    text-align: center;
+}
+
+.no-border-img img{
+    border: none;
+}
+
+.step-no{
+    padding: 10px;
+}
+
+.step-no div{
+    font-size: 35px;
+    /*padding: 20px 30px;*/
+    border: 1px solid grey;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    background-color: #4e4c6c;
+    color: whitesmoke;
+}
+
+.easiest-save h1{
+    color: #4e4c6c;
+    text-align: center;
+}
+
+.easiest-save h3{
+    color: grey;
+    text-align: center;
+}
+
+.easiest-save{
+
+}
+
+.purchase-parent{
+    line-height: 2.0;
+}
+
+.purchase-parent h1{
+    color: #4e4c6c;
+}
+
+.purchase-parent b{
+
+}
+
+.purchase-options{
+    list-style-type: none;
+}
+
+.m-body h3{
+    text-decoration: underline;
+}
+
+.plans-list li{
+    text-transform: capitalize;
+}
+
+.contact-sec-fix{
+    margin-top: -23px;
+}
+
+@media screen and (max-width: 1199px) {
+
+    .nav-fix{
+        height: 170px;
+    }
+
+    .business-info{
+        margin-top: 10px;
+    }
+
+    .custom-footer-nav ul{
+        list-style-type: none;
+        display: block;
+        padding: 10px;
+    }
+
+    .custom-footer-nav ul li{
+        display: block;
+        text-align: center;
+    }
+
+    .custom-footer-nav ul li a{
+        color: white;
+        font-size: 17px;
+        font-weight: 500;
+        display: block;
+    }
+
+}

@@ -1,0 +1,136 @@
+{% extends 'no-carousel-base.html' %}
+
+
+{% block content %}
+
+    {% load staticfiles %}
+    <!-- start main content -->
+    <section class="properties">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+
+                            {% if comment_added %}
+                                <div class="alert alert-success">Thank you, your comment was added! </div>
+                            {% endif %}
+
+                            <!-- start post content -->
+                            <div class="blogPost"style="padding: 15px;">
+                                {#                            <a href="blog_single.html" class="propertyImgLink"><img class="propertyImgRow" src="images/banner4.jpg" alt="" /></a>#}
+                                <div class="propertyContent row">
+                                    <div class="col-lg-12 rowText">
+                                        <table border="1" class="blogDetails">
+                                            <tr>
+                                                <td><a href="#"><i class="fa fa-calendar"></i> {{ bp.timestamp.date }}</a></td>
+                                                <td><a href="#"><i class="fa fa-heart"></i> {{ bp.likes }} LIKES</a></td>
+                                                <td><a href="#"><i class="fa fa-share"></i> SHARE</a></td>
+                                            </tr>
+                                        </table>
+                                        <h4><a href="/blogs/{{ bp.slug }}">{{ bp.title }}</a></h4>
+                                        <br>
+                                        <br>
+                                        <span>POSTED BY <a href="#">{{ bp.author.first_name }} {{ bp.author.last_name }}</a></span>
+                                        {{ bp.content | safe }}
+                                    </div>
+                                </div>
+                                <!-- end post content -->
+
+                                <!-- start comments -->
+                                <h3>COMMENTS</h3>
+                                <div class="divider"></div>
+                                <div class="commentList">
+                                    {% for c in comments %}
+                                        <div class="comment">
+                                            <div class="row">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                                                    <img src="{% static 'images/user.png' %}" class="commentImg" alt="" />
+                                                </div>
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                                                    <div class="arrow-left"></div>
+                                                    <div class="commentText">
+                                                        <h1>{{ c.name }}</h1>
+                                                        <p>
+                                                            {{ c.message }}
+                                                        </p>
+                                                        <p class="commentFooter"><i class="fa fa-calendar"></i> {{ c.timestamp.date }}</p>
+                                                        {#                                                    <a href="#" class="commentFooter replyIcon"><i class="fa fa-reply"></i> REPLY</a>#}
+                                                    </div>
+                                                </div>
+                                            </div><!-- end row -->
+                                        </div><!-- end comment -->
+                                    {% endfor %}
+                                </div>
+                                <!-- end comments -->
+
+                                <!-- start comment form -->
+                                <h3>LEAVE A REPLY</h3>
+                                <div class="divider"></div>
+                                <form method="post" action="/blogs/save-comment/">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <div class="formBlock">
+                                                <label for="name">Your Name</label><br/>
+                                                <input type="text" name="name" id="name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <div class="formBlock">
+                                                <label for="email">Your Email</label><br/>
+                                                <input type="text" name="email" id="email" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="formBlock">
+                                                <label for="message">Your Message</label><br/>
+                                                <textarea name="message" id="message" class="formDropdown"></textarea>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" value="{{ bp.slug }}" name="slug">
+                                        <input type="hidden" value="{{ bp.id }}" name="parent">
+                                        <div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
+                                            <div class="formBlock">
+                                                <input class="buttonColor" type="submit" value="POST COMMENT" />
+                                            </div>
+                                        </div>
+                                    </div><!-- end row -->
+                                </form><!-- end form -->
+                                <!-- end comment form -->
+                            </div>
+
+                        </div><!-- col -->
+                    </div><!-- end row -->
+                </div><!-- end col -->
+
+                <!-- START SIDEBAR -->
+                <div class="col-lg-3 col-md-3">
+
+                    <!-- start recent posts widget -->
+                    <h3>RECENT POSTS</h3>
+                    <div class="divider"></div>
+                    <div class="recentPosts sidebarWidget">
+                        {% for post in bps %}
+                            <h4><a href="/blogs/{{ post.slug }}">{{ post.title }}</a></h4>
+                            <br>
+                            <a href="/blogs/{{ post.slug }}">READ MORE</a>
+                            <p class="date">{{ post.timestamp.date }}</p>
+                            <div style="clear:both;"></div>
+                        {% endfor %}
+                    </div>
+                    <!-- end recent posts widget -->
+
+
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+    <!-- end main content -->
+
+
+
+    <br>
+
+
+{% endblock %}

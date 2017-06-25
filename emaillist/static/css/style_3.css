@@ -1,0 +1,128 @@
+
+.banner {
+    width: 100%;
+    float: left;
+    height: auto;
+    position: relative;
+    background: #222c34;
+}
+
+.banner .slides {
+    position: relative;
+    z-index: 99;
+}
+
+.banner .slides li {
+    position: relative;
+}
+
+.flex-direction-nav {
+    width: 100%;
+    float: left;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+}
+
+.flex-direction-nav a {
+    position: absolute;
+    height: 100%;
+    text-indent: -9999px;
+    width: 36px;
+    z-index: 9999;
+    height: 48px;
+    margin-top: -24px;
+    top: 50%;
+    text-indent: -9999px;
+    z-index: 9999;
+}
+
+.banner .flex-direction-nav a.flex-prev {
+    background: rgba(0, 0, 0, 0) url("../img/home/slider/prev.png") no-repeat scroll left center;
+    left: 0;
+    position: absolute;
+}
+
+.banner .flex-direction-nav a.flex-next {
+    position: absolute;
+    background: url(../img/home/slider/next.png) no-repeat left center;
+    right: 0;
+}
+
+.banner_caption {
+    width: 100%;
+    float: left;
+    height: auto;
+    position: absolute;
+    bottom: 45px;
+    opacity: 0;
+    z-index: 9999;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.item.active .banner_caption {
+    opacity: 1;
+}
+
+#recommended-item-carousel .recommended-item-control {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -24px;
+    z-index: 999;
+}
+
+#recommended-item-carousel:hover .recommended-item-control {
+    display: block;
+}
+
+#recommended-item-carousel .recommended-item-control.left {
+    left: 0;
+}
+
+#recommended-item-carousel .recommended-item-control.right {
+    right: 0;
+}
+
+.caption_inner {
+    width: 595px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.74);
+    position: relative;
+    z-index: 9999;
+}
+
+.caption_inner h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+}
+
+.caption_inner p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    margin: 0 0 30px;
+}
+
+.caption_inner a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #fff;
+    padding: 12px 40px;
+    background: #49c32c;
+    cursor: pointer;
+}
