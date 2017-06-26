@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$de+15hg99hb(4-^&m2&be1gayz**1e#m40h4^7x%m1cd+gj*+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["173.255.249.248", "truealoehealth.com", "www.truealoehealth.com", "127.0.0.1"]
 
