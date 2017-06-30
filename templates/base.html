@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/yamm.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
@@ -52,9 +53,9 @@
                 <li class="topBarText"><a href="#" data-toggle="modal" data-target="#shopModal">Shop</a></li>
                 <li class="topBarText"><a href="#" data-toggle="modal" data-target="#joinModal">Join</a></li>
                 <li><a href="#"><img src="/static/images/icon-fb.png" alt=""/></a></li>
-{#                <li><a href="#"><img src="/static/images/icon-twitter.png" alt=""/></a></li>#}
-{#                <li><a href="#"><img src="/static/images/icon-google.png" alt=""/></a></li>#}
-{#                <li><a href="#"><img src="/static/images/icon-rss.png" alt=""/></a></li>#}
+                {#                <li><a href="#"><img src="/static/images/icon-twitter.png" alt=""/></a></li>#}
+                {#                <li><a href="#"><img src="/static/images/icon-google.png" alt=""/></a></li>#}
+                {#                <li><a href="#"><img src="/static/images/icon-rss.png" alt=""/></a></li>#}
             </ul>
         </div>
     </div>
@@ -80,11 +81,26 @@
             <!-- end login/register -->
 
             <ul class="nav navbar-nav">
-                <li class="dropdown {{ home }}">
+                <li class="dropdown {{ home }} menu-item-has-children">
                     <a href="/">HOME</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about">About FLP</a></li>
+                        <li><a href="/feedback">Contact</a></li>
+                    </ul>
                 </li>
-                <li class="dropdown {{ products }}">
+                <li class="dropdown {{ products }} menu-item-has-children">
                     <a href="/products">PRODUCTS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'aloe' %}">Aloe Vera Drink</a></li>
+                        <li><a href="{% url 'nutrition' %}">Nutrition</a></li>
+                        <li><a href="{% url 'cosmetics' %}">Cosmetics</a></li>
+                        <li><a href="{% url 'skincare' %}">Skin Care</a></li>
+                        <li><a href="{% url 'bee_products' %}">Bee Products</a></li>
+                        <li><a href="{% url 'combo' %}">Combo Packs</a></li>
+                        <li><a href="{% url 'personal' %}">Personal Care</a></li>
+                        <li><a href="{% url 'weight' %}">Weight Management</a></li>
+                        <li><a href="{% url 'gluten' %}">Gluten Free Products</a></li>
+                    </ul>
                 </li>
                 <li class="dropdown {{ discounts }}">
                     <a href="/discounts">DISCOUNTS</a>
@@ -97,6 +113,15 @@
                 </li>
                 <li class="dropdown {{ contact }}">
                     <a href="/feedback">CONTACT</a>
+                </li>
+                <li class="dropdown {{ clean }} menu-item-has-children">
+                    <a href="/clean-9">CLEAN 9</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/c-9-instructions">C9 Instruction</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown {{ fit }}">
+                    <a href="/forever-i-t-weight-loss">FOREVER F.I.T</a>
                 </li>
             </ul>
         </div>
@@ -148,7 +173,7 @@
 {% include 'join-now-modal.html' %}
 {% include 'shop-now-modal.html' %}
 
-<footer class="custom-footer-nav">
+<footer class="custom-footer-nav {% block bg_color %}{% endblock %}">
 
     <div class="footer-link-container">
         <ul class="footer-link-list">

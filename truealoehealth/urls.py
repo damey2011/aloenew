@@ -28,5 +28,16 @@ urlpatterns = [
     url(r'^feedback/', include('feedback.urls'), name='feedback'),
     url(r'^top-products/', include('topproducts.urls'), name='top-products'),
     url(r'^blogs/', include('blogs.urls'), name='blogs'),
+    url(r'^test/', views.Test.as_view(), name='test'),
+    url(r'^aloe-vera-drink/', views.AloeVeraDrink.as_view(), name='aloe'),
+    url(r'^aloe-vera-nutrition/', views.AloeVeraNutrition.as_view(), name='nutrition'),
+    url(r'^aloe-vera-cosmetics/', views.AloeVeraCosmetics.as_view(), name='cosmetics'),
+    url(r'^aloe-vera-skincare/', views.AloeVeraSkinCare.as_view(), name='skincare'),
+    url(r'^aloe-vera-bee-products/', views.AloeVeraBeeProducts.as_view(), name='bee_products'),
+    url(r'^aloe-vera-combo-packs/', views.AloeVeraComboPacks.as_view(), name='combo'),
+    url(r'^aloe-vera-personal-care/', views.AloeVeraPersonal.as_view(), name='personal'),
+    url(r'^aloe-vera-weight-management/', views.AloeVeraWeight.as_view(), name='weight'),
+    url(r'^gluten-free-products/', views.GlutenFree.as_view(), name='gluten'),
+    url(r'^forever-i-t-weight-loss/', views.FIT.as_view(), name='fit'),
     url(r'^admin/', admin.site.urls)
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
