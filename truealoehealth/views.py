@@ -77,6 +77,16 @@ class FIT(View):
         return render(request, 'fit.html', {'fit': 'current'})
 
 
+class Clean9(View):
+    def get(self, request):
+        return render(request, 'c9.html', {'products': 'current'})
+
+
+class C9Instructions(View):
+    def get(self, request):
+        return render(request, 'c9-instructions.html', {'fit': 'current'})
+
+
 @csrf_exempt
 def upload(request):
     # folder = 'uploads'

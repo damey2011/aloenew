@@ -351,9 +351,12 @@ h1{
 .sub-form{
     display: block;
     padding: 20px;
-    background-color: #505160;
     color: white;
     border-radius: 10px;
+}
+
+.form-default{
+    background-color: #505160;
 }
 
 .sub-form span{

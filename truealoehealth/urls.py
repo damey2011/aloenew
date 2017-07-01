@@ -39,5 +39,7 @@ urlpatterns = [
     url(r'^aloe-vera-weight-management/', views.AloeVeraWeight.as_view(), name='weight'),
     url(r'^gluten-free-products/', views.GlutenFree.as_view(), name='gluten'),
     url(r'^forever-i-t-weight-loss/', views.FIT.as_view(), name='fit'),
+    url(r'^clean-9/', views.Clean9.as_view(), name='c9'),
+    url(r'^clean-9-instructions/', views.C9Instructions.as_view(), name='c9-inst'),
     url(r'^admin/', admin.site.urls)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

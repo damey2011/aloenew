@@ -115,9 +115,9 @@
                     <a href="/feedback">CONTACT</a>
                 </li>
                 <li class="dropdown {{ clean }} menu-item-has-children">
-                    <a href="/clean-9">CLEAN 9</a>
+                    <a href="{% url 'c9' %}">CLEAN 9</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/c-9-instructions">C9 Instruction</a></li>
+                        <li><a href="{% url 'c9-inst' %}">C9 Instruction</a></li>
                     </ul>
                 </li>
                 <li class="dropdown {{ fit }}">
@@ -161,7 +161,7 @@
 
 
 <div class="container">
-    <form action="" class="sub-form form-group">
+    <form action="" class="sub-form form-group {% block form_bg %}form-default{% endblock %}">
         <span><span class="fa fa-envelope-o icon-mail"></span>  Join our mailing list for exclusive updates</span>
         <br>
         <br>
