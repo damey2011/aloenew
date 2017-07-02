@@ -17,7 +17,7 @@
                             {% endif %}
 
                             <!-- start post content -->
-                            <div class="blogPost"style="padding: 15px;">
+                            <div class="blogPost-" style="padding: 15px;">
                                 {#                            <a href="blog_single.html" class="propertyImgLink"><img class="propertyImgRow" src="images/banner4.jpg" alt="" /></a>#}
                                 <div class="propertyContent row">
                                     <div class="col-lg-12 rowText">
@@ -28,20 +28,27 @@
                                                 <td><a href="#"><i class="fa fa-share"></i> SHARE</a></td>
                                             </tr>
                                         </table>
-                                        <h4><a href="/blogs/{{ bp.slug }}">{{ bp.title }}</a></h4>
-                                        <br>
-                                        <br>
+                                        <h2><a href="/blogs/{{ bp.slug }}">{{ bp.title }}</a></h2>
                                         <span>POSTED BY <a href="#">{{ bp.author.first_name }} {{ bp.author.last_name }}</a></span>
-                                        {{ bp.content | safe }}
+                                        <br>
+                                        <hr>
+                                        <div class="blog-content">
+                                            {{ bp.content | safe }}
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- end post content -->
 
                                 <!-- start comments -->
+                                <div class="divider"></div>
+                                <br>
                                 <h3>COMMENTS</h3>
                                 <div class="divider"></div>
                                 <div class="commentList">
-                                    {% for c in comments %}
+                                    <br>
+                                    {% if comments %}
+
+                                        {% for c in comments %}
                                         <div class="comment">
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
@@ -61,44 +68,52 @@
                                             </div><!-- end row -->
                                         </div><!-- end comment -->
                                     {% endfor %}
+
+                                    {% else %}
+                                        <h4>Be the first to comment </h4>
+                                    {% endif %}
                                 </div>
+                                <br>
                                 <!-- end comments -->
 
-                                <!-- start comment form -->
-                                <h3>LEAVE A REPLY</h3>
-                                <div class="divider"></div>
-                                <form method="post" action="/blogs/save-comment/">
-                                    {% csrf_token %}
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6">
-                                            <div class="formBlock">
-                                                <label for="name">Your Name</label><br/>
-                                                <input type="text" name="name" id="name" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6">
-                                            <div class="formBlock">
-                                                <label for="email">Your Email</label><br/>
-                                                <input type="text" name="email" id="email" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="formBlock">
-                                                <label for="message">Your Message</label><br/>
-                                                <textarea name="message" id="message" class="formDropdown"></textarea>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" value="{{ bp.slug }}" name="slug">
-                                        <input type="hidden" value="{{ bp.id }}" name="parent">
-                                        <div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
-                                            <div class="formBlock">
-                                                <input class="buttonColor" type="submit" value="POST COMMENT" />
-                                            </div>
-                                        </div>
-                                    </div><!-- end row -->
-                                </form><!-- end form -->
-                                <!-- end comment form -->
+
                             </div>
+
+                            <!-- start comment form -->
+                            <br>
+                            <h3>LEAVE A REPLY</h3>
+                            <div class="divider"></div>
+                            <form method="post" action="/blogs/save-comment/">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Your Name</label><br/>
+                                            <input type="text" name="name" id="name" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="email">Your Email</label><br/>
+                                            <input type="text" name="email" id="email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="formBlock">
+                                            <label for="message">Your Message</label><br/>
+                                            <textarea name="message" id="message" class="formDropdown"></textarea>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="{{ bp.slug }}" name="slug">
+                                    <input type="hidden" value="{{ bp.id }}" name="parent">
+                                    <div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
+                                        <div class="formBlock">
+                                            <input class="buttonColor" type="submit" value="POST COMMENT" />
+                                        </div>
+                                    </div>
+                                </div><!-- end row -->
+                            </form><!-- end form -->
+                            <!-- end comment form -->
 
                         </div><!-- col -->
                     </div><!-- end row -->

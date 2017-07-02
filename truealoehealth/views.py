@@ -79,12 +79,12 @@ class FIT(View):
 
 class Clean9(View):
     def get(self, request):
-        return render(request, 'c9.html', {'products': 'current'})
+        return render(request, 'c9.html', {'clean': 'current'})
 
 
 class C9Instructions(View):
     def get(self, request):
-        return render(request, 'c9-instructions.html', {'fit': 'current'})
+        return render(request, 'c9-instructions.html', {'clean': 'current'})
 
 
 @csrf_exempt

@@ -359,6 +359,10 @@ h1{
     background-color: #505160;
 }
 
+.blog-content{
+    font-size: 16px !important;
+}
+
 .sub-form span{
     text-align: center;
     font-size: 25px;
@@ -484,6 +488,14 @@ h1{
     text-align: left;
 }
 
+.blogPost-{
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px #333;
+}
+
+.blogPost- .blog-content{
+    font-weight: 100 !important;
+}
 
 
 /* PRODUCTS */
