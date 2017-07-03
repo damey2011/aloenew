@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 
@@ -31,7 +32,10 @@ class BlogPostView(View):
         return render(request, 'blog-single.html', {'bp': bp, 'comments': c, 'bps': bps})
 
 
-class ComposeBlogPost(View):
+class ComposeBlogPost(LoginRequiredMixin, View):
+    login_url = '/admin/login/'
+    redirect_field_name = 'r'
+
     def get(self, request):
         cats = ProductCategory.objects.all()
         return render(request, 'editor.html', {'cats': cats})

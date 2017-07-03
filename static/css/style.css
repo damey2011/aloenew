@@ -114,9 +114,17 @@ h1{
     box-shadow: 2px 2px 2px 1px grey;
 }
 
+/*.col-cs{*/
+/*max-height: 120px;*/
+/*overflow-y: hidden;*/
+/*overflow-x: hidden;*/
+/*}*/
+
 .col-cs img{
     display: block;
     margin: 0 auto;
+    height: 120px;
+    width: 150px;
 }
 
 .great-way img{
@@ -343,9 +351,16 @@ h1{
 .sub-form{
     display: block;
     padding: 20px;
-    background-color: #505160;
     color: white;
     border-radius: 10px;
+}
+
+.form-default{
+    background-color: #505160;
+}
+
+.blog-content{
+    font-size: 16px !important;
 }
 
 .sub-form span{
@@ -473,10 +488,207 @@ h1{
     text-align: left;
 }
 
+.blogPost-{
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px #333;
+}
+
+.blogPost- .blog-content{
+    font-weight: 100 !important;
+}
+
+
+/* PRODUCTS */
+.carousel-gradient-bg{
+    padding: 20px;
+}
+
+.left-carousel{
+    padding-top: 20px;
+}
+
+.bsid-listing{
+    padding-top: 30px;
+}
+
+.bsid-listing, .bsid-listing ul li, .bsid-listing ul li span{
+    color: white;
+}
+
+.nav>li>a{
+    margin-right: 0;
+}
+
+.bsid-listing h2{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.bsid-listing p{
+    color: grey;
+}
+
+.bsid-listing hr{
+    border-color: white;
+}
+
+.blogPost- img, .blog-content img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*Product Themes --------------------------------------------------------------------*/
+.panel-head, .panel-head span{
+    color: white !important;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.bg-purple-blue{
+    background: linear-gradient(rgba(78, 76, 108, 1), rgba(78, 76, 108, 0.6));
+    color: white;
+}
+
+.text-purple-blue{
+    color: rgba(78, 76, 108, 1) !important;
+}
+
+.line-purple-blue{
+    border-color: rgba(78, 76, 108, 1) !important;
+}
+
+
+
+.bg-greenish{
+    background: linear-gradient(rgba(86, 121, 47, 1), rgba(86, 121, 47, 0.6));
+    color: white;
+}
+
+.text-greenish{
+    color:rgba(86, 121, 47, 1) !important;
+}
+
+.line-greenish{
+    border-color:rgba(86, 121, 47, 1) !important;
+}
+
+.bg-reddish{
+    background: linear-gradient(rgba(144, 43, 43, 1), rgba(144, 43, 43, 0.6));
+    color: white;
+}
+
+.text-reddish{
+    color: rgba(144, 43, 43, 1) !important;
+}
+
+.line-reddish{
+    border-color: rgba(144, 43, 43, 1) !important;
+}
+
+.bg-orangish{
+    background: linear-gradient(rgba(153, 51, 0, 1), rgba(153, 51, 0, 0.6));
+    color: white;
+}
+
+.text-orangish{
+    color: rgba(153, 51, 0, 1) !important;
+}
+
+.line-orangish{
+    border-color: rgba(153, 51, 0, 1) !important;
+}
+
+.bg-greyish{
+    background: linear-gradient(rgba(172, 165, 48, 1), rgba(172, 165, 48, 0.6));
+    color: white;
+}
+
+.text-greyish{
+    color:rgba(172, 165, 48, 1) !important;
+}
+
+.line-greyish{
+    border-color:rgba(172, 165, 48, 1) !important;
+}
+
+.bg-differ{
+    background: linear-gradient(rgba(235, 147, 22, 1), rgba(235, 147, 22, 0.6));
+    color: white;
+}
+
+.text-differ{
+    color:rgba(235, 147, 22, 1) !important;
+}
+
+.line-differ{
+    border-color:rgba(235, 147, 22, 1) !important;
+}
+
+.bg-brownish{
+    background: linear-gradient(rgba(59, 59, 31, 1), rgba(59, 39, 31, 0.6));
+    color: white;
+}
+
+.text-brownish{
+    color: #3b3b1f !important;
+}
+
+.line-brownish{
+    border-color:rgba(59, 59, 31, 1) !important;
+}
+
+.bg-purple{
+    background: linear-gradient(rgba(142, 20, 100, 1), rgba(142, 20, 100, 0.6));
+    color: white;
+}
+
+.text-purple{
+    color:rgba(142, 20, 100, 1) !important;
+}
+
+.line-purple{
+    border-color:rgba(142, 20, 100, 1) !important;
+}
+/*Themes end ---------------------------------------------------------------------------*/
+
+.card-like img{
+    display: block;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+    margin: 0 auto;
+}
+
+.cln-9-img{
+    width: 150px;
+}
+
+.bold{
+    font-weight: 600;
+}
+
 @media screen and (max-width: 1199px) {
 
+    .left-carousel{
+        padding-top: 0;
+    }
+
+    .carousel-gradient-bg{
+        padding: 0 0;
+    }
+
+    .no-padding-mobile-container{
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .bsid-listing{
+        margin: 20px;
+    }
+
     .nav-fix{
-        height: 170px;
+        height: 140px;
     }
 
     .business-info{
@@ -507,6 +719,44 @@ h1{
 
     .navbar-brand span{
         font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width: 1199px) {
+    .carousel{
+        display: block;
+        position: relative;
+        top: 35px;
+    }
+
+    .buttonGrey{
+        padding: 6px 10px 6px 10px !important;
+    }
+
+    .userButtons{
+        padding-left: 10px;
+    }
+
+    .nav>li>a{
+        padding: 8px 10px;
+    }
+
+    .nav.navbar-nav li a{
+        margin-right: 0;
+    }
+
+    .yamm{
+        padding-bottom: 0;
+        font-weight: 500;
+    }
+
+    .nav .navbar-nav{
+        margin-bottom: -10px;
+    }
+
+    .dropdown-menu{
+        top: 70px;
     }
 
 }

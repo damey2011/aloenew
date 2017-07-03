@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forever Living Products</title>
+    <title>{% block title %}Forever Living Products{% endblock %}</title>
     {% load staticfiles %}
     {#    <link rel="stylesheet" href="{% static 'css' %}">#}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -14,12 +14,24 @@
     <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
+    <style>
+        .nav .navbar-nav .current{
+            box-shadow: inset 0 -4px 0 {% block current_col %}#81be32{% endblock %} !important;
+        }
+
+
+        .navbar-brand span{
+            color: {% block sol_col %}#81be32{% endblock %};
+        }
+
+    </style>
 </head>
 <body>
 
 <div class="nav-fix">
 
 </div>
+
 
 <!--End of navbar-->
 

@@ -115,9 +115,9 @@ h1{
 }
 
 /*.col-cs{*/
-    /*max-height: 120px;*/
-    /*overflow-y: hidden;*/
-    /*overflow-x: hidden;*/
+/*max-height: 120px;*/
+/*overflow-y: hidden;*/
+/*overflow-x: hidden;*/
 /*}*/
 
 .col-cs img{
@@ -532,6 +532,12 @@ h1{
     border-color: white;
 }
 
+.blogPost- img, .blog-content img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 /*Product Themes --------------------------------------------------------------------*/
 .panel-head, .panel-head span{
     color: white !important;
@@ -625,7 +631,7 @@ h1{
 }
 
 .text-brownish{
-    color:rgba(59, 59, 31, 1) !important;
+    color: #3b3b1f !important;
 }
 
 .line-brownish{

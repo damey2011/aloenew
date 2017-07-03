@@ -14,8 +14,20 @@
     <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
+
+    <style>
+        .navbar-brand span{
+            color: {% block sol_col %}#81be32{% endblock %};
+        }
+
+        .nav.navbar-nav.current{
+            box-shadow: inset 0 -4px 0 {% block current_col %}#81be32{% endblock %} !important;
+        }
+    </style>
 </head>
 <body>
+
+
 
 <div class="nav-fix">
 
@@ -39,7 +51,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- Start Header -->
