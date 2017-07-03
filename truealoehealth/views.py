@@ -90,8 +90,6 @@ class C9Instructions(View):
 @csrf_exempt
 def upload(request):
     # folder = 'uploads'
-    print(request)
-    print(request.FILES)
 
     # uploaded_filename = request.FILES['image'].name
     uploaded_file = request.FILES['upload']
