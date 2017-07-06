@@ -1,0 +1,37 @@
+{% extends 'no-carousel-base.html' %}
+{% block content %}
+<div class="container">
+    {% if success_alert %}
+        <div class="alert alert-success">Weldone bros, post was updated successfully! </div>
+    {% endif %}
+
+    <form method="post" action="/blogs/update/{{ post.id }}/">
+        {% csrf_token %}
+        <label for="post-title">Post Title: </label>
+        <input type="text" id="post-title" placeholder="Blog title" class="form-control" name="post-title" value="{{ post.title }}">
+
+{#        <label for="post-cat">Category: </label>#}
+{#        <select name="post-cat" id="post-cat" class="form-control">#}
+{#            {% for cat in cats %}#}
+{#                <option value="{{ cat.id }}">{{ cat.category }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+
+        <p>
+            <label for="editor1">Post Content: </label><br />
+            <textarea id="editor1" name="editor1" >{{ post.content }}</textarea>
+        </p>
+        <p>
+            <input type="submit" value="Update"/>
+        </p>
+    </form>
+</div>
+
+    <script src="/static/js/ckeditor.js"></script>
+<script type="text/javascript">
+    CKEDITOR.replace( 'editor1' );
+    CKEDITOR.config.extraPlugins = 'uploadimage';
+    CKEDITOR.config.uploadUrl = '/upload/';
+</script>
+{% endblock %}
+

@@ -1,0 +1,62 @@
+{% extends 'no-carousel-base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <h1>Latest Blog Posts</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-9">
+                {% for post in posts %}
+                    <a href="/blogs/{{ post.slug }}" class="hover-card hover-card-hovered">
+                        <div class="card-overlay"></div>
+                        <div class="w3-card-4 test" style="width:100%;">
+                            <header class="w3-container card-header">
+                                <img src="{% static 'images/leke.jpg' %}" alt="User" class="small-post-img img-responsive pull-right" style="margin-top: 20px; border-radius: 50%;">
+                                <h3><b>{{ post.title }}</b></h3>
+                                <small><span class="fa fa-user w3-text-white"></span> {{ post.author.first_name }} {{ post.author.last_name }}</small>
+                                <small><span class="fa fa-calendar w3-text-white"></span> {{ post.timestamp.date }}</small>
+                                <small><span class="fa fa-clock-o w3-text-white"></span> {{ post.timestamp.time }}</small>
+                                <br>
+                                <br>
+                            </header>
+                            <div class="w3-container" style="padding-bottom: 15px; line-height: 1.5 !important;">
+                                <br>
+                                <div class="post-excerpt">
+                                    {{ post.content | safe | truncatewords:50 }} ... <a href="/blogs/{{ post.slug }}" style="color: rgba(129, 190, 50, 1);">Continue Reading</a>
+                                </div>
+                            </div>
+                            <div class="int-bar">
+                                <a onclick="return popitup(this)" href="https://www.facebook.com/sharer/sharer.php?u=http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-facebook-official"></span></a>
+                                <a onclick="return popitup(this)" href="https://twitter.com/intent/tweet?text=Read about {{ post.title }} at http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-twitter-square"></span></a>
+                                {% if user.is_superuser %}
+
+                                    <a href="/blogs/update/{{ post.id }}"><span class="fa fa-pencil-square-o"></span></a>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                    <br>
+                {% endfor %}
+
+
+                <div class="w3-bar text-center">
+                    {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}" class="w3-button">&laquo;</a>
+                    {% endif %}
+                    <a href="#" class="w3-button">{{ posts.number }}</a>
+
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}" class="w3-button">&raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        <br> <br>
+        <script>
+            $('.hover-card').hover()
+        </script>
+{% endblock %}

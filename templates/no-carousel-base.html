@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'css/style_3.css' %}">
     <link rel="stylesheet" href="{% static 'css/yamm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Forever Living Product Distributor">
+    <meta property="og:site_name" content="True Aloe Health">
+    <meta property="og:description" content="Distributor Forever Living Products">
     <style>
         .nav .navbar-nav .current{
             box-shadow: inset 0 -4px 0 {% block current_col %}#81be32{% endblock %} !important;
@@ -195,6 +200,23 @@
     function list_item(item){
         return "<li><a href='/products/category/"+item.id+"'>"+item.category+"</a></li>"
     }
+
+    function changeLinkBg(id){
+        $('.panel-body-'+id).addClass('change-bg-link');
+    }
+
+    function revertLinkBg(id){
+        $('.panel-body-'+id).removeClass('change-bg-link');
+    }
+
+    function popitup(link) {
+        var w = window.open(link.href,
+                link.target||"_blank",
+                'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=800,height=620,left=0,top=0');
+        return w?false:true; // allow the link to work if popup is blocked
+    }
+
+
 
 </script>
 </html>

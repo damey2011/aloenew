@@ -21,7 +21,7 @@ class AllBlogs(View):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
 
-        return render(request, 'blog-post-list.html', {'posts': posts})
+        return render(request, 'new-blog-list.html', {'posts': posts})
 
 
 class BlogPostView(View):
@@ -29,7 +29,7 @@ class BlogPostView(View):
         bp = BlogPost.objects.get(slug=slug)
         c = Comment.objects.filter(parent=bp.id)
         bps = BlogPost.objects.all()[:10]
-        return render(request, 'blog-single.html', {'bp': bp, 'comments': c, 'bps': bps})
+        return render(request, 'new-blog-post.html', {'post': bp, 'comments': c, 'bps': bps})
 
 
 class ComposeBlogPost(LoginRequiredMixin, View):
@@ -50,6 +50,25 @@ class ComposeBlogPost(LoginRequiredMixin, View):
         return render(request, 'editor.html', {'success_alert': True, 'cats': cats})
 
 
+class UpdateBlogPost(LoginRequiredMixin, View):
+    login_url = '/admin/login/'
+    redirect_field_name = 'r'
+
+    def get(self, request, post_id):
+        cats = ProductCategory.objects.all()
+        post = BlogPost.objects.get(pk=post_id)
+        return render(request, 'update-blog-post.html', {'cats': cats, 'post': post})
+
+    def post(self, request, post_id):
+        title = request.POST['post-title']
+        content = request.POST['editor1']
+        bp = BlogPost.objects.get(pk=post_id)
+        bp.title = title
+        bp.content = content
+        bp.save(force_update=True)
+        return redirect('/blogs/'+bp.slug, {'success_alert': True})
+
+
 class SaveComment(View):
     def post(self, request):
         post_slug = request.POST['slug']
@@ -62,5 +81,5 @@ class SaveComment(View):
         c = Comment(name=name, email=email, message=message, parent=parent)
         c.save()
 
-        return redirect('/blogs/'+post_slug, {'comment_added': True})
+        return redirect('/blogs/' + post_slug, {'comment_added': True})
         # return render(request, 'blog-single.html', {'comment_added': True})

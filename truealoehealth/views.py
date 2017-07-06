@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from blogs.models import BlogPost
 from products.models import StandAloneImageUpload
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -9,7 +10,8 @@ from django.template import RequestContext
 
 class HomeView(View):
     def get(self, request):
-        return render(request, 'home.html', {'home': 'current'})
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'home.html', {'home': 'current', 'posts': posts})
 
 
 class DiscountView(View):
@@ -24,7 +26,7 @@ class BecomeBusinessOwnerView(View):
 
 class Test(View):
     def get(self, request):
-        return render(request, 'products-dropdown/aloe-vera-drinks.html')
+        return render(request, 'new-blog-list.html')
 
 
 class AloeVeraDrink(View):

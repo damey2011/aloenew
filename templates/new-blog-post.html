@@ -1,0 +1,136 @@
+{% extends 'no-carousel-base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        {% if success_alert %}
+            <div class="alert alert-success">Weldone bros, post was updated successfully! </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-9">
+
+                <div class="card-overlay"></div>
+                <div class="w3-card-4 test" style="width:100%;">
+                    <header class="w3-container card-header">
+                        <img src="{% static 'images/leke.jpg' %}" alt="User" class="small-post-img img-responsive pull-right" style="margin-top: 20px; border-radius: 50%;">
+                        <h3><b>{{ post.title }}</b></h3>
+                        <small><span class="fa fa-user w3-text-white"></span> {{ post.author.first_name }} {{ post.author.last_name }}</small>
+                        <small><span class="fa fa-calendar w3-text-white"></span> {{ post.timestamp.date }}</small>
+                        <small><span class="fa fa-clock-o w3-text-white"></span> {{ post.timestamp.time }}</small>
+                        <br>
+                        <br>
+                    </header>
+                    <div class="w3-container" style="padding-bottom: 15px; line-height: 1.5 !important;">
+                        <br>
+                        <div class="post-excerpt">
+                            {{ post.content | safe }}
+                        </div>
+                    </div>
+                    <div class="int-bar">
+                        <a onclick="return popitup(this)" href="https://www.facebook.com/sharer/sharer.php?u=http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-facebook-official"></span></a>
+                        <a onclick="return popitup(this)" href="https://twitter.com/intent/tweet?text=Read about {{ post.title }} at http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-twitter-square"></span></a>
+                        {% if user.is_superuser %}
+
+                            <a href="/blogs/update/{{ post.id }}"><span class="fa fa-pencil-square-o"></span></a>
+
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- start comments -->
+                <div class="divider"></div>
+                <br>
+                <h3>COMMENTS</h3>
+                <div class="divider"></div>
+                <div class="commentList">
+                    <br>
+                    {% if comments %}
+
+                        {% for c in comments %}
+                            <div class="comment">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                                        <img src="{% static 'images/user.png' %}" class="commentImg" alt="" />
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                                        <div class="arrow-left"></div>
+                                        <div class="commentText">
+                                            <h1>{{ c.name }}</h1>
+                                            <p>
+                                                {{ c.message }}
+                                            </p>
+                                            <p class="commentFooter"><i class="fa fa-calendar"></i> {{ c.timestamp.date }}</p>
+                                            {#                                                    <a href="#" class="commentFooter replyIcon"><i class="fa fa-reply"></i> REPLY</a>#}
+                                        </div>
+                                    </div>
+                                </div><!-- end row -->
+                            </div><!-- end comment -->
+                        {% endfor %}
+
+                    {% else %}
+                        <h4>Be the first to comment </h4>
+                    {% endif %}
+                </div>
+                <br>
+                <!-- end comments -->
+
+
+                <!-- start comment form -->
+                <br>
+                <h3>LEAVE A REPLY</h3>
+                <div class="divider"></div>
+                <form method="post" action="/blogs/save-comment/">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="formBlock">
+                                <label for="name">Your Name</label><br/>
+                                <input type="text" name="name" id="name" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="formBlock">
+                                <label for="email">Your Email</label><br/>
+                                <input type="text" name="email" id="email" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="formBlock">
+                                <label for="message">Your Message</label><br/>
+                                <textarea name="message" id="message" class="formDropdown"></textarea>
+                            </div>
+                        </div>
+                        <input type="hidden" value="{{ post.slug }}" name="slug">
+                        <input type="hidden" value="{{ post.id }}" name="parent">
+                        <div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
+                            <div class="formBlock">
+                                <input class="buttonColor" type="submit" value="POST COMMENT" />
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </form><!-- end form -->
+
+                <br>
+
+            </div>
+
+            <div class="col-lg-3">
+                <h1>Read these too</h1>
+                <ul class="w3-ul w3-card-4">
+                    {% for post in bps %}
+                        <li><a href="/blogs/{{ post.slug }}" style="display: block;"><span class="fa fa-book"></span> {{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+    <br> <br>
+    <script>
+        $('.hover-card').hover()
+    </script>
+{% endblock %}

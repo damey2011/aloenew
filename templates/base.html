@@ -16,17 +16,16 @@
     <meta name="viewport" content="width=device-width">
 
     <style>
-        .navbar-brand span{
+        .navbar-brand span {
             color: {% block sol_col %}#81be32{% endblock %};
         }
 
-        .nav.navbar-nav.current{
+        .nav.navbar-nav.current {
             box-shadow: inset 0 -4px 0 {% block current_col %}#81be32{% endblock %} !important;
         }
     </style>
 </head>
 <body>
-
 
 
 <div class="nav-fix">
@@ -40,6 +39,7 @@
         <div class="media col-lg-8">
             <div class="portfolio media-body">
                 <img src="/static/images/leke.jpg" alt="" class="pull-left media-object m-img">
+
                 <p class="media-heading">Forever Living Products Business Owner</p>
                 natural health and beauty products
             </div>
@@ -59,7 +59,8 @@
         <div class="container">
             <p class="topBarText"><img class="icon" src="/static/images/icon-phone.png" alt=""/>+2348032550758</p>
 
-            <p class="topBarText"><img class="icon" src="/static/images/icon-mail.png" alt=""/>oyelekeolaoye@gmail.com</p>
+            <p class="topBarText"><img class="icon" src="/static/images/icon-mail.png" alt=""/>oyelekeolaoye@gmail.com
+            </p>
             <ul class="socialIcons">
                 <li class="topBarText"><a href="#" data-toggle="modal" data-target="#shopModal">Shop</a></li>
                 <li class="topBarText"><a href="#" data-toggle="modal" data-target="#joinModal">Join</a></li>
@@ -86,14 +87,16 @@
 
             <!--  start login/register -->
             <ul class="userButtons">
-                <li class="userBtn"><a href="#" class="buttonGrey" data-toggle="modal" data-target="#shopModal">Shop Now</a></li>
-                <li class="userBtn"><a href="#" class="buttonGrey" data-toggle="modal" data-target="#joinModal">Join Now</a></li>
+                <li class="userBtn"><a href="#" class="buttonGrey" data-toggle="modal" data-target="#shopModal">Shop
+                    Now</a></li>
+                <li class="userBtn"><a href="#" class="buttonGrey" data-toggle="modal" data-target="#joinModal">Join
+                    Now</a></li>
             </ul>
             <!-- end login/register -->
 
             <ul class="nav navbar-nav">
                 <li class="dropdown {{ home }} menu-item-has-children">
-                    <a href="/">HOME</a>
+                    <a href="{% url 'home' %}">HOME</a>
                     <ul class="dropdown-menu">
                         <li><a href="/about">About FLP</a></li>
                         <li><a href="/feedback">Contact</a></li>
@@ -170,6 +173,29 @@
 
 {% endblock %}
 
+<div class="rand-topics">
+    <div class="container">
+        <hr>
+        <br>
+        <h2>Read these: </h2>
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-lg-4">
+                    <a href="/blogs/{{ post.slug }}" onmouseover="changeLinkBg({{ post.id }})" onmouseout="revertLinkBg({{ post.id }})" class="panel-link">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bold"><span class="fa fa-pencil-square-o"></span> {{ post.title }}</div>
+                            <div class="panel-body panel-body-{{ post.id }}">
+                                {{ post.content | safe | truncatewords:50 }}
+                                <a href="/blogs/{{ post.slug }}">...</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 
 <div class="container">
     <form action="" class="sub-form form-group {% block form_bg %}form-default{% endblock %}">
@@ -211,10 +237,18 @@
         $.each(data, function (key, value) {
             $('.footer-link-list').append(list_item(value));
         })
-    })
+    });
 
-    function list_item(item){
-        return "<li><a href='/products/category/"+item.id+"'>"+item.category+"</a></li>"
+    function list_item(item) {
+        return "<li><a href='/products/category/" + item.id + "'>" + item.category + "</a></li>";
+    }
+
+    function changeLinkBg(id){
+        $('.panel-body-'+id).addClass('change-bg-link');
+    }
+
+    function revertLinkBg(id){
+        $('.panel-body-'+id).removeClass('change-bg-link');
     }
 
 </script>
