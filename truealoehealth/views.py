@@ -16,17 +16,20 @@ class HomeView(View):
 
 class DiscountView(View):
     def get(self, request):
-        return render(request, 'discounts.html', {'discounts': 'current'})
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'discounts.html', {'discounts': 'current', 'posts': posts})
 
 
 class BecomeBusinessOwnerView(View):
     def get(self, request):
-        return render(request, 'become-distributor.html', {'become': 'current'})
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'become-distributor.html', {'become': 'current', 'posts': posts})
 
 
 class Test(View):
     def get(self, request):
-        return render(request, 'new-blog-list.html')
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'new-blog-list.html', {'posts': posts})
 
 
 class AloeVeraDrink(View):
@@ -76,17 +79,20 @@ class GlutenFree(View):
 
 class FIT(View):
     def get(self, request):
-        return render(request, 'fit.html', {'fit': 'current'})
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'fit.html', {'fit': 'current', 'posts': posts})
 
 
 class Clean9(View):
     def get(self, request):
-        return render(request, 'c9.html', {'clean': 'current'})
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'c9.html', {'clean': 'current', 'posts': posts})
 
 
 class C9Instructions(View):
     def get(self, request):
-        return render(request, 'c9-instructions.html', {'clean': 'current'})
+        posts = BlogPost.objects.all().order_by('?')[:3]
+        return render(request, 'c9-instructions.html', {'clean': 'current', 'posts': posts})
 
 
 @csrf_exempt

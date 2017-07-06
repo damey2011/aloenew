@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'css/style_3.css' %}">
     <link rel="stylesheet" href="{% static 'css/yamm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="Forever Living Product Distributor">
+    <meta property="og:site_name" content="True Aloe Health">
+    <meta property="og:description" content="Distributor Forever Living Products">
 
     <style>
         .navbar-brand span {
@@ -95,12 +100,8 @@
             <!-- end login/register -->
 
             <ul class="nav navbar-nav">
-                <li class="dropdown {{ home }} menu-item-has-children">
+                <li class="dropdown {{ home }}">
                     <a href="{% url 'home' %}">HOME</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/about">About FLP</a></li>
-                        <li><a href="/feedback">Contact</a></li>
-                    </ul>
                 </li>
                 <li class="dropdown {{ products }} menu-item-has-children">
                     <a href="/products">PRODUCTS</a>
@@ -181,12 +182,31 @@
         <div class="row">
             {% for post in posts %}
                 <div class="col-lg-4">
-                    <a href="/blogs/{{ post.slug }}" onmouseover="changeLinkBg({{ post.id }})" onmouseout="revertLinkBg({{ post.id }})" class="panel-link">
-                        <div class="panel panel-default">
-                            <div class="panel-heading bold"><span class="fa fa-pencil-square-o"></span> {{ post.title }}</div>
-                            <div class="panel-body panel-body-{{ post.id }}">
-                                {{ post.content | safe | truncatewords:50 }}
-                                <a href="/blogs/{{ post.slug }}">...</a>
+                    <a href="/blogs/{{ post.slug }}" class="hover-card hover-card-hovered">
+                        <div class="w3-card-4 test" style="width:100%; height: 350px; overflow: hidden; padding-bottom: 15px;">
+                            <header class="w3-container card-header">
+                                <img src="{% static 'images/leke.jpg' %}" alt="User" class="small-post-img img-responsive pull-right" style="margin-top: 20px; border-radius: 50%;">
+                                <h3><b>{{ post.title }}</b></h3>
+                                <small><span class="fa fa-user w3-text-white"></span> {{ post.author.first_name }} {{ post.author.last_name }}</small>
+                                <small><span class="fa fa-calendar w3-text-white"></span> {{ post.timestamp.date }}</small>
+                                <small><span class="fa fa-clock-o w3-text-white"></span> {{ post.timestamp.time }}</small>
+                                <br>
+                                <br>
+                            </header>
+                            <div class="w3-container" style="padding-bottom: 15px; line-height: 1.5 !important;">
+                                <br>
+                                <div class="post-excerpt">
+                                    {{ post.content | safe | truncatewords:50 }} ... <a href="/blogs/{{ post.slug }}" style="color: rgba(129, 190, 50, 1);">Continue Reading</a>
+                                </div>
+                            </div>
+                            <div class="int-bar">
+                                <a onclick="return popitup(this)" href="https://www.facebook.com/sharer/sharer.php?u=http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-facebook-official"></span></a>
+                                <a onclick="return popitup(this)" href="https://twitter.com/intent/tweet?text=Read about {{ post.title }} at http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-twitter-square"></span></a>
+                                {% if user.is_superuser %}
+
+                                    <a href="/blogs/update/{{ post.id }}"><span class="fa fa-pencil-square-o"></span></a>
+
+                                {% endif %}
                             </div>
                         </div>
                     </a>
@@ -196,6 +216,8 @@
     </div>
 </div>
 
+<br>
+<br>
 
 <div class="container">
     <form action="" class="sub-form form-group {% block form_bg %}form-default{% endblock %}">
@@ -249,6 +271,13 @@
 
     function revertLinkBg(id){
         $('.panel-body-'+id).removeClass('change-bg-link');
+    }
+
+    function popitup(link) {
+        var w = window.open(link.href,
+                link.target||"_blank",
+                'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=800,height=620,left=0,top=0');
+        return w?false:true; // allow the link to work if popup is blocked
     }
 
 </script>
