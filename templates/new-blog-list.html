@@ -3,11 +3,11 @@
 {% block content %}
 
     <div class="container">
-        <h1>Latest Blog Posts</h1>
+        <h1 style="padding: 15px;">Latest Blog Posts</h1>
         <hr>
 
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-9 no-padding-mobile-container">
                 {% for post in posts %}
                     <a href="/blogs/{{ post.slug }}" class="hover-card hover-card-hovered">
                         <div class="card-overlay"></div>

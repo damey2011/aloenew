@@ -10,7 +10,7 @@
         <hr>
 
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-9 no-padding-mobile-container">
 
                 <div class="card-overlay"></div>
                 <div class="w3-card-4 test" style="width:100%;">
@@ -40,80 +40,82 @@
                     </div>
                 </div>
 
-                <!-- start comments -->
-                <div class="divider"></div>
-                <br>
-                <h3>COMMENTS</h3>
-                <div class="divider"></div>
-                <div class="commentList">
+                <div class="comment-container-mobile">
+                    <!-- start comments -->
+                    <div class="divider"></div>
                     <br>
-                    {% if comments %}
+                    <h3>COMMENTS</h3>
+                    <div class="divider"></div>
+                    <div class="commentList">
+                        <br>
+                        {% if comments %}
 
-                        {% for c in comments %}
-                            <div class="comment">
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-                                        <img src="{% static 'images/user.png' %}" class="commentImg" alt="" />
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
-                                        <div class="arrow-left"></div>
-                                        <div class="commentText">
-                                            <h1>{{ c.name }}</h1>
-                                            <p>
-                                                {{ c.message }}
-                                            </p>
-                                            <p class="commentFooter"><i class="fa fa-calendar"></i> {{ c.timestamp.date }}</p>
-                                            {#                                                    <a href="#" class="commentFooter replyIcon"><i class="fa fa-reply"></i> REPLY</a>#}
+                            {% for c in comments %}
+                                <div class="comment">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                                            <img src="{% static 'images/user.png' %}" class="commentImg" alt="" />
                                         </div>
-                                    </div>
-                                </div><!-- end row -->
-                            </div><!-- end comment -->
-                        {% endfor %}
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                                            <div class="arrow-left"></div>
+                                            <div class="commentText">
+                                                <h1>{{ c.name }}</h1>
+                                                <p>
+                                                    {{ c.message }}
+                                                </p>
+                                                <p class="commentFooter"><i class="fa fa-calendar"></i> {{ c.timestamp.date }}</p>
+                                                {#                                                    <a href="#" class="commentFooter replyIcon"><i class="fa fa-reply"></i> REPLY</a>#}
+                                            </div>
+                                        </div>
+                                    </div><!-- end row -->
+                                </div><!-- end comment -->
+                            {% endfor %}
 
-                    {% else %}
-                        <h4>Be the first to comment </h4>
-                    {% endif %}
+                        {% else %}
+                            <h4>Be the first to comment </h4>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <!-- end comments -->
+
+
+                    <!-- start comment form -->
+                    <br>
+                    <h3>LEAVE A REPLY</h3>
+                    <div class="divider"></div>
+                    <form method="post" action="/blogs/save-comment/">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="name">Your Name</label><br/>
+                                    <input type="text" name="name" id="name" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="email">Your Email</label><br/>
+                                    <input type="text" name="email" id="email" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="formBlock">
+                                    <label for="message">Your Message</label><br/>
+                                    <textarea name="message" id="message" class="formDropdown"></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" value="{{ post.slug }}" name="slug">
+                            <input type="hidden" value="{{ post.id }}" name="parent">
+                            <div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
+                                <div class="formBlock">
+                                    <input class="buttonColor" type="submit" value="POST COMMENT" />
+                                </div>
+                            </div>
+                        </div><!-- end row -->
+                    </form><!-- end form -->
+
+                    <br>
                 </div>
-                <br>
-                <!-- end comments -->
-
-
-                <!-- start comment form -->
-                <br>
-                <h3>LEAVE A REPLY</h3>
-                <div class="divider"></div>
-                <form method="post" action="/blogs/save-comment/">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="formBlock">
-                                <label for="name">Your Name</label><br/>
-                                <input type="text" name="name" id="name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="formBlock">
-                                <label for="email">Your Email</label><br/>
-                                <input type="text" name="email" id="email" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="formBlock">
-                                <label for="message">Your Message</label><br/>
-                                <textarea name="message" id="message" class="formDropdown"></textarea>
-                            </div>
-                        </div>
-                        <input type="hidden" value="{{ post.slug }}" name="slug">
-                        <input type="hidden" value="{{ post.id }}" name="parent">
-                        <div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8">
-                            <div class="formBlock">
-                                <input class="buttonColor" type="submit" value="POST COMMENT" />
-                            </div>
-                        </div>
-                    </div><!-- end row -->
-                </form><!-- end form -->
-
-                <br>
 
             </div>
 

@@ -768,6 +768,10 @@ h1{
         margin-top: 0;
     }
 
+    .comment-container-mobile{
+        padding: 0 15px;
+    }
+
     .bsid-listing{
         margin: 20px;
     }
