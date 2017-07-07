@@ -170,9 +170,12 @@
     </a>
 </div>
 
-{% block content %}
+<div class="container">
+    <br>
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
+</div>
 
 <div class="rand-topics">
     <div class="container">
@@ -198,6 +201,7 @@
                                 <div class="post-excerpt">
                                     {{ post.content | safe | truncatewords:50 }} ... <a href="/blogs/{{ post.slug }}" style="color: rgba(129, 190, 50, 1);">Continue Reading</a>
                                 </div>
+                                <br>
                             </div>
                             <div class="int-bar">
                                 <a onclick="return popitup(this)" href="https://www.facebook.com/sharer/sharer.php?u=http://truealoehealth.com/blogs/{{ post.slug }}"><span class="fa fa-facebook-official"></span></a>
@@ -210,6 +214,7 @@
                             </div>
                         </div>
                     </a>
+                    <br>
                 </div>
             {% endfor %}
         </div>

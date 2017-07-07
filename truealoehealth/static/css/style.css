@@ -77,7 +77,7 @@ h1{
 .carousel-container{
     background: url('../images/abstract-background-52.jpg') no-repeat;
     background-size: cover;
-    margin: 25px;
+    /*margin: 25px;*/
 }
 
 .carousel-control{
@@ -774,7 +774,7 @@ h1{
     }
 
     .nav-fix{
-        height: 140px;
+        height: 165px;
     }
 
     .business-info{
