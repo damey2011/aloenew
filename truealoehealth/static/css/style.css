@@ -123,13 +123,13 @@ h1{
 .col-cs img{
     display: block;
     margin: 0 auto;
-    height: 120px;
-    width: 150px;
+    max-height: 120px;
+    /*width: 150px;*/
 }
 
-.great-way img{
-    max-width: 150px;
-}
+/*.great-way img{*/
+    /*max-width: 150px;*/
+/*}*/
 
 .great-way h1{
     color: #56792f;
