@@ -7,6 +7,10 @@ h1{
     font-weight: 500;
 }
 
+img{
+    cursor: zoom-in;
+}
+
 @font-face {
     font-family: 'Proxima Nova Light';
     src: url('type/proximanova-light-webfont.eot');
@@ -751,6 +755,80 @@ h1{
 .post-excerpt[style]{
     font-size: 12px !important;
     font-family: "Consolas", "Menlo", "Courier", monospace !important;
+}
+
+.img-modal{
+    display: none;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    height: 100%;
+    background-color: rgba(51,51,51,0.3);
+    /*transform: translate(0, -50%);*/
+    -webkit-overflow-scrolling: touch;
+    z-index: 1050;
+    overflow-y: scroll;
+}
+
+.modal-img{
+    margin-top: 45%;
+    /*transform: translate(0, 40%);*/
+    border: 1px solid grey;
+    border-radius: 10px;
+    min-width: 300px;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.close-btn-img{
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: -5px;
+    left: 49%;
+    font-size: 45px;
+    color: white !important;
+}
+.resp-img-post img{
+    max-width: 70%;
+    height: auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+.resp-img-post b{
+    font-size: 16px;
+}
+
+.resp-img-post[style]{
+    color: black !important;
+}
+
+.resp-img-post ul{
+    list-style-type: circle;
+}
+
+.frame{
+    white-space: nowrap;
+}
+
+.helper{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.show{
+    display: block;
+}
+
+.close-btn-img:hover{
+    background-color: #333;
 }
 
 @media screen and (max-width: 1199px) {

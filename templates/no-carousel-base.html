@@ -165,6 +165,7 @@
 
 {% include 'join-now-modal.html' %}
 {% include 'shop-now-modal.html' %}
+{% include 'img-modal.html' %}
 
 <footer class="custom-footer-nav {% block bg_clor %}{% endblock %}">
 
@@ -213,6 +214,18 @@
                 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=800,height=620,left=0,top=0');
         return w?false:true; // allow the link to work if popup is blocked
     }
+
+    function dismissImgModal(){
+        event.preventDefault();
+        $('.img-modal').removeClass('show');
+    }
+
+    $('img').click(function (event) {
+        $('.modal-img').attr('src', window.location.origin+'/static/images/loading.gif').css('margin-top', '45%');
+        var url = event.target.src;
+        $('.img-modal').addClass('show').fadeIn;
+        $('.modal-img').attr('src', url).css('margin-top', '20px');
+    });
 
 
 
