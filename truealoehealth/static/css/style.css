@@ -793,7 +793,7 @@ img{
     font-size: 45px;
     color: white !important;
 }
-.resp-img-post img{
+.resp-img-post img, .post-excerpt img{
     max-width: 70%;
     height: auto;
     border: 1px solid lightgrey;
